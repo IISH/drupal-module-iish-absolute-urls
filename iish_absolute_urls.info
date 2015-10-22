@@ -1,0 +1,6 @@
+name = IISH Absolute URLs
+description = Causes internal site URLs in forms to be rendered as absolute
+package = IISH
+core = 7.x
+version = "7.x-1.0"
+

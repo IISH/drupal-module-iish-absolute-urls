@@ -1,0 +1,18 @@
+<?php
+
+/*
+ * @file 
+ *   If a form action is not explicitly set the REQUEST_URI global wil be used.
+ *   This should lead to the same page the form is on.
+ *   If however the site is behind a proxy, and the $base_url contains a subdirectory,
+ *   this will fail.
+ *   Therefore we correct this here by adding the $base_url.
+ */
+
+function iish_absolute_urls_form_alter(&$form, &$form_state, $form_id) {
+  global $base_url;
+  if ($form['#action'] == request_uri()) {
+    $form['#action'] = $base_url . $form['#action'];
+  }
+}
+
